@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faithbook — One Pager</title>
+  <style>
+    :root{
+      --ink:#1c1a24;
+      --ink-soft:#6b6675;
+      --ink-faint:#a8a2b0;
+      --line:#eae5df;
+      --accent:#6d28d9;
+      --accent-soft:#f2ecff;
+      --warm:#f6efe8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      background:#eceae6;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* A4 sheet */
+    .page{
+      width:210mm;min-height:296mm;
+      margin:24px auto;background:#fff;
+      box-shadow:0 20px 60px rgba(28,26,36,.14);
+      padding:15mm 18mm 12mm;
+      display:flex;flex-direction:column;
+    }
+
+    /* Brand — small, quiet */
+    .brand{display:flex;align-items:center;justify-content:center;gap:9px}
+    .brand .dot{width:20px;height:20px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%,#8b5cf6,var(--accent))}
+    .brand span{font-size:15px;font-weight:600;letter-spacing:-.01em}
+    .brand small{color:var(--ink-faint);font-weight:400;font-size:12.5px;margin-left:2px}
+
+    /* The statement — very large */
+    .statement{text-align:center;margin:34px 0 8px}
+    .statement .soft{font-size:19px;color:var(--ink-soft);letter-spacing:-.01em;margin:0 0 10px}
+    .statement h1{
+      font-size:40px;line-height:1.12;letter-spacing:-.035em;font-weight:700;margin:0;
+    }
+    .statement h1 em{font-style:normal;color:var(--accent)}
+
+    /* ── Hero diagram ─────────────────────────────────── */
+    .diagram{margin:40px auto 0;width:100%;max-width:640px;text-align:center}
+
+    .person-row{display:inline-flex;align-items:center;gap:14px}
+    .face{width:58px;height:58px;border-radius:50%;object-fit:cover;
+      box-shadow:0 4px 14px rgba(28,26,36,.16)}
+    .bubble{
+      background:var(--warm);border-radius:16px;border-bottom-left-radius:4px;
+      padding:11px 18px;font-size:15px;color:#4a4550;text-align:left;
+    }
+    .bubble b{color:var(--ink)}
+
+    .vline{width:1.5px;height:26px;background:var(--line);margin:10px auto}
+
+    .ai-node{
+      display:inline-flex;flex-direction:column;align-items:center;gap:7px;
+      background:var(--accent);color:#fff;border-radius:999px;
+      padding:13px 30px;
+    }
+    .ai-node .t{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+    .ai-node .s{font-size:11.5px;opacity:.85;margin-top:-6px}
+
+    /* branch connectors */
+    .branches{position:relative;margin-top:26px}
+    .branches::before{ /* horizontal rail */
+      content:"";position:absolute;top:0;left:12.5%;right:12.5%;height:1.5px;background:var(--line);
+    }
+    .branch-cols{display:grid;grid-template-columns:repeat(4,1fr)}
+    .branch-cols .col{position:relative;padding-top:22px}
+    .branch-cols .col::before{ /* vertical stub down to each card */
+      content:"";position:absolute;top:0;left:50%;width:1.5px;height:22px;background:var(--line);
+    }
+    .stem{position:absolute;left:50%;top:-26px;width:1.5px;height:26px;background:var(--line)}
+
+    .card{
+      margin:0 7px;background:#fff;border:1px solid var(--line);border-radius:16px;
+      padding:16px 10px 14px;
+      box-shadow:0 6px 20px rgba(28,26,36,.05);
+    }
+    .card .ic{
+      width:44px;height:44px;border-radius:50%;margin:0 auto 9px;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--accent-soft);font-size:20px;overflow:hidden;
+    }
+    .card .ic img{width:100%;height:100%;object-fit:cover}
+    .card .n{font-size:13.5px;font-weight:650;letter-spacing:-.01em}
+    .card .d{font-size:11.5px;color:var(--ink-soft);line-height:1.45;margin-top:3px}
+
+    .result{
+      display:inline-block;margin-top:0;
+      background:var(--accent-soft);color:var(--accent);
+      border-radius:999px;padding:10px 26px;font-size:14.5px;font-weight:650;letter-spacing:-.01em;
+    }
+
+    /* ── Three quiet columns ──────────────────────────── */
+    .trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin-top:44px}
+    .trio h2{
+      font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+      color:var(--accent);margin:0 0 9px;
+    }
+    .trio p{font-size:13px;line-height:1.6;color:#4a4550;margin:0}
+    .trio p b{color:var(--ink)}
+    .trio ul{list-style:none;margin:0;padding:0;font-size:13px;line-height:2;color:#4a4550}
+    .trio li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:8px}
+
+    /* ── Closing quote — huge, across the bottom ─────── */
+    .closing{margin-top:auto;padding-top:36px;text-align:center}
+    .closing .rule{width:44px;height:3px;border-radius:2px;background:var(--accent);margin:0 auto 22px}
+    .closing h1{font-size:31px;line-height:1.22;letter-spacing:-.03em;font-weight:700;margin:0}
+    .closing h1 .dim{color:var(--ink-faint);font-weight:600}
+    .closing h1 em{font-style:normal;color:var(--accent)}
+    .closing .sig{margin-top:16px;font-size:12px;color:var(--ink-faint)}
+
+    @media print{
+      body{background:#fff}
+      .page{margin:0;box-shadow:none;width:auto;min-height:auto}
+      @page{size:A4;margin:0}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 1 · brand, small -->
+  <div class="brand">
+    <div class="dot"></div><span>Faithbook</span><small>· AI-verbinder voor de gemeenschap</small>
+  </div>
+
+  <!-- 2 · the statement, very large -->
+  <div class="statement">
+    <p class="soft">AI moet de gemeenschap niet vervangen.</p>
+    <h1>AI moet de gemeenschap <em>versterken</em>.</h1>
+  </div>
+
+  <!-- 3 · the diagram, hero of the page -->
+  <div class="diagram">
+
+    <div class="person-row">
+      <img class="face" src="assets/img/brian.jpg" alt="Brian">
+      <div class="bubble"><b>"Ik heb net mijn moeder verloren…"</b></div>
+    </div>
+
+    <div class="vline"></div>
+
+    <div class="ai-node">
+      <span class="t">AI begrijpt de context</span>
+      <span class="s">ervaring · emotie · behoefte · levensfase</span>
+    </div>
+
+    <div class="branches">
+      <div class="stem"></div>
+      <div class="branch-cols">
+        <div class="col">
+          <div class="card">
+            <div class="ic"><img src="assets/img/marijke.jpg" alt=""></div>
+            <div class="n">Een persoon</div>
+            <div class="d">die hetzelfde heeft meegemaakt</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="ic">⛪</div>
+            <div class="n">Kerk &amp; kring</div>
+            <div class="d">een gemeenschap dichtbij</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="ic">🤝</div>
+            <div class="n">Hulp</div>
+            <div class="d">voorganger of vrijwilliger</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="ic">📖</div>
+            <div class="n">Inspiratie</div>
+            <div class="d">bijbeltekst of podcast, op het juiste moment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vline"></div>
+    <div class="result">Een sterkere gemeenschap — die het zélf oplost</div>
+  </div>
+
+  <!-- 4 · three short sections, almost no paragraphs -->
+  <div class="trio">
+    <div>
+      <h2>Het probleem</h2>
+      <p><b>1 · Eenzaamheid groeit.</b><br>Steeds meer mensen missen echte verbinding.</p>
+      <p style="margin-top:10px"><b>2 · Onbenut potentieel.</b><br>Gemeenschappen zitten vol
+      talent en betrokkenheid — maar de juiste mensen vinden elkaar niet.</p>
+    </div>
+    <div>
+      <h2>Waarom AI</h2>
+      <p>Een zoekmachine zoekt op trefwoorden. <b>AI begrijpt context.</b></p>
+      <p style="margin-top:10px">AI lost het niet óp voor mensen — het <b>geeft de gemeenschap
+      de kracht om het zélf op te lossen</b>. Altijd met toestemming, altijd met de mens aan het stuur.</p>
+    </div>
+    <div>
+      <h2>Verwachte impact</h2>
+      <ul>
+        <li>Gemeenschappen die zelf problemen oplossen</li>
+        <li>Minder eenzaamheid</li>
+        <li>Minder last voor vrijwilligers</li>
+        <li>Geloof dat door mensen gedeeld wordt</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5 · closing quote, huge across the bottom -->
+  <div class="closing">
+    <div class="rule"></div>
+    <h1><span class="dim">AI geeft niet het beste antwoord.</span><br>
+        AI vindt de beste <em>verbinding</em>.</h1>
+    <div class="sig">Faithbook · een prototype voor EO · AI &amp; Bijbel Hackathon</div>
+  </div>
+
+</div>
+</body>
+</html>

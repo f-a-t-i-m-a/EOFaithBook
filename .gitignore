@@ -1,0 +1,18 @@
+# Editor / IDE
+.vscode/
+.idea/
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
+# Internal team docs — kept local, never shared
+CLAUDE.md
+docs/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs / temp
+*.log

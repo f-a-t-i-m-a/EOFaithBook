@@ -1,0 +1,200 @@
+/* Faithbook — styles
+   Design north star: simple, minimal, Apple-calm. One accent (EO purple),
+   generous whitespace. The AI recedes; the person gets the color. */
+
+:root{
+  --bg:#ffffff;
+  --side:#f6f3ee;
+  --ink:#1c1a24;
+  --ink-soft:#6b6675;
+  --line:#eae5df;
+  --line-soft:#f0ebe4;
+  --accent:#6d28d9;      /* EO purple, used sparingly */
+  --accent-soft:#f2ecff;
+  --warm:#f6efe8;
+  --shadow:0 1px 2px rgba(28,26,36,.04), 0 12px 40px rgba(28,26,36,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+}
+
+.app{display:grid;grid-template-columns:270px 1fr;height:100vh}
+
+/* ── Sidebar ──────────────────────────────────────────── */
+.side{
+  background:var(--side);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;padding:16px 12px;gap:6px;
+}
+.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 16px}
+.brand .dot{width:30px;height:30px;border-radius:8px;
+  background:radial-gradient(circle at 30% 30%, #8b5cf6, var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:16px;letter-spacing:-.05em;line-height:1}
+.brand span{font-weight:600;letter-spacing:-.02em;font-size:18px}
+
+.newchat{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid var(--line);background:#fff;border-radius:12px;
+  padding:11px 14px;font:inherit;font-size:14px;font-weight:500;color:var(--ink);
+  cursor:pointer;transition:background .15s;margin-bottom:14px;text-align:left;
+}
+.newchat:hover{background:#fdfcfa}
+.newchat .plus{color:var(--accent);font-size:17px;line-height:1}
+
+.h-label{font-size:12px;color:#a8a2b0;padding:6px 12px;letter-spacing:.02em}
+.threadlist{display:flex;flex-direction:column;gap:2px}
+.thread{
+  display:block;width:100%;text-align:left;border:0;background:transparent;
+  border-radius:10px;padding:10px 12px;font:inherit;font-size:14px;color:var(--ink-soft);
+  cursor:pointer;transition:background .15s,color .15s;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.thread:hover{background:#efe9e1;color:var(--ink)}
+.thread.active{background:#ece4fb;color:var(--accent)}
+
+.side .foot{margin-top:auto;display:flex;align-items:center;gap:10px;padding:12px 10px;border-top:1px solid var(--line)}
+.side .foot .av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#c4b5fd,#6d28d9);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600}
+.side .foot .who{font-size:13px}
+.side .foot .who small{display:block;color:#a8a2b0;font-size:11px}
+
+/* ── Main ─────────────────────────────────────────────── */
+.main{display:flex;flex-direction:column;height:100vh;position:relative}
+.stream{flex:1;overflow-y:auto;padding:32px 0 20px}
+.col{max-width:720px;margin:0 auto;padding:0 28px}
+
+/* Empty state */
+.empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:60px}
+.empty .dot{width:52px;height:52px;border-radius:13px;
+  background:radial-gradient(circle at 30% 30%, #8b5cf6, var(--accent));margin-bottom:22px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:27px;letter-spacing:-.05em;line-height:1}
+.empty h1{font-size:30px;letter-spacing:-.03em;font-weight:600;margin:0 0 10px}
+.empty p{color:var(--ink-soft);font-size:16px;margin:0;max-width:380px}
+
+/* Messages */
+.msg{display:flex;gap:14px;margin:26px 0}
+.msg .who-av{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;
+  justify-content:center;font-size:12px;font-weight:600;color:#fff;margin-top:2px}
+.msg.user .who-av{background:linear-gradient(135deg,#c4b5fd,#6d28d9)}
+.msg.bot .who-av{background:radial-gradient(circle at 30% 30%, #8b5cf6, var(--accent));
+  font-size:14px;font-weight:800;letter-spacing:-.05em}
+.msg .body{flex:1;min-width:0}
+.msg .body .txt{font-size:16px;color:var(--ink)}
+
+/* Person card inside a bot reply */
+.person{
+  margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:18px;
+  box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:16px;max-width:440px;
+}
+.person .top{display:flex;align-items:center;gap:14px}
+.person .avatar{width:52px;height:52px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;
+  justify-content:center;font-size:19px;font-weight:600;color:#fff}
+.person .name{font-weight:600;font-size:17px;letter-spacing:-.01em}
+.person .meta{color:var(--ink-soft);font-size:13.5px;margin-top:1px}
+.why{background:var(--warm);border-radius:14px;padding:14px 16px;font-size:14.5px;color:#4a4550}
+.why .tag{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:5px}
+.cardbtn{border:0;cursor:pointer;border-radius:12px;padding:13px 18px;font:inherit;font-size:14.5px;
+  font-weight:500;background:var(--accent);color:#fff;transition:transform .15s,opacity .2s}
+.cardbtn:hover{transform:translateY(-1px)}
+.cardbtn:disabled{opacity:.85;cursor:default;transform:none}
+
+/* Typing indicator */
+.dots{display:inline-flex;gap:5px;padding:6px 0}
+.dots i{width:7px;height:7px;border-radius:50%;background:#c9c2d2;animation:blink 1.2s infinite ease-in-out}
+.dots i:nth-child(2){animation-delay:.15s}
+.dots i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+
+/* ── Composer ─────────────────────────────────────────── */
+.composer{padding:12px 0 22px;background:linear-gradient(transparent,var(--bg) 22%)}
+.field{
+  max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:22px;
+  box-shadow:var(--shadow);padding:8px 8px 8px 20px;display:flex;align-items:flex-end;gap:10px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field:focus-within{border-color:#d9cdf5;box-shadow:0 0 0 4px var(--accent-soft),var(--shadow)}
+textarea{flex:1;border:0;outline:0;resize:none;background:transparent;font:inherit;font-size:16px;
+  color:var(--ink);padding:12px 0;max-height:180px}
+textarea::placeholder{color:#a8a2b0}
+.send{border:0;cursor:pointer;flex:0 0 auto;width:42px;height:42px;border-radius:13px;background:var(--accent);
+  color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center;transition:transform .15s,opacity .2s}
+.send:hover{transform:translateY(-1px)}
+.send:disabled{opacity:.35;cursor:default;transform:none}
+.disclaimer{max-width:720px;margin:10px auto 0;text-align:center;color:#b3adba;font-size:12px}
+
+/* ── Buttons (shared) ─────────────────────────────────── */
+.btn{border:0;cursor:pointer;border-radius:12px;padding:12px 18px;font:inherit;font-size:14.5px;
+  font-weight:500;transition:transform .15s,opacity .2s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:disabled{cursor:default;transform:none;opacity:.85}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line)}
+.btn.ghost:hover{color:var(--ink);border-color:#d9cdf5}
+.btn.sm{padding:9px 14px;font-size:13.5px}
+
+/* Daily greeting reads a touch softer/larger */
+.greeting{font-size:16.5px}
+
+/* Permission ask */
+.permission{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+
+/* Sidebar "something happened" dot */
+.thread{position:relative}
+.thread.has-update::after{content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent-soft);
+  animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(109,40,217,.35)}70%{box-shadow:0 0 0 7px rgba(109,40,217,0)}100%{box-shadow:0 0 0 0 rgba(109,40,217,0)}}
+
+/* Avatars rendered as images (illustrated portraits / EO logo) */
+img.avatar{object-fit:cover;background:#efeae2}
+.avatar.count{background:#efeae2;color:var(--ink-soft);font-size:12.5px;font-weight:600}
+img.who-av{object-fit:cover}
+.side .foot .av{overflow:hidden;padding:0}
+.side .foot .av img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Donor mini-cards */
+.avatar.sm{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;
+  justify-content:center;font-size:14px;font-weight:600;color:#fff}
+.donors{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px}
+.donor{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:12px 14px}
+.donor .d-txt{display:flex;flex-direction:column;min-width:0}
+.donor .d-txt b{font-size:14px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.donor .d-txt span{font-size:12.5px;color:var(--ink-soft)}
+
+/* Question triage cards */
+.qlist{margin-top:16px;display:flex;flex-direction:column;gap:14px;max-width:520px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+  padding:18px;display:flex;flex-direction:column;gap:14px;transition:opacity .3s}
+.qcard.resolved{opacity:.6}
+.q-top{display:flex;align-items:center;gap:12px}
+.q-top .name{font-weight:600;font-size:15px;letter-spacing:-.01em}
+.q-question{color:var(--ink-soft);font-size:14px;font-style:italic;margin-top:1px}
+.q-reply{background:var(--warm);border-radius:14px;padding:14px 16px}
+.q-label{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:6px}
+.q-text{font-size:14.5px;color:#3f3a48;outline:none;border-radius:8px}
+.q-text.editing{background:#fff;box-shadow:0 0 0 2px var(--accent-soft);padding:8px 10px;margin:-4px -6px}
+.q-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.q-done{font-size:13.5px;font-weight:500;color:var(--accent)}
+
+/* Coordination options */
+.options{display:flex;flex-direction:column;gap:10px;margin-top:16px;max-width:420px}
+.option{text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;
+  font:inherit;font-size:14.5px;color:var(--ink);cursor:pointer;transition:all .15s}
+.option:hover{border-color:#d9cdf5;background:#fdfcfa;transform:translateY(-1px)}
+
+/* ── Utility / responsive ─────────────────────────────── */
+.hidden{display:none!important}
+@media(max-width:760px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+  .donors{grid-template-columns:1fr}
+}

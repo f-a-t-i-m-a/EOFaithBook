@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faithbook</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div class="app">
+  <!-- ── Sidebar ─────────────────────────────────────────── -->
+  <aside class="side">
+    <div class="brand"><div class="dot">eo</div><span>Faithbook</span></div>
+    <button class="newchat" id="newchat"><span class="plus">+</span> Nieuw gesprek</button>
+    <nav class="threadlist" id="threads-today"></nav>
+    <div class="h-label" id="earlier-label">Eerder</div>
+    <nav class="threadlist" id="threads-earlier"></nav>
+    <div class="foot">
+      <div class="av">B</div>
+      <div class="who">Brian<small>Kerk De Ark · Amersfoort</small></div>
+    </div>
+  </aside>
+
+  <!-- ── Main ────────────────────────────────────────────── -->
+  <main class="main">
+    <div class="stream" id="stream">
+      <div class="empty" id="empty">
+        <div class="dot">eo</div>
+        <h1>Waar loop je mee, Brian?</h1>
+        <p>Deel wat je bezighoudt. Faithbook zoekt geen antwoord — het zoekt de juiste persoon.</p>
+      </div>
+      <div class="col" id="messages"></div>
+    </div>
+
+    <div class="composer">
+      <div class="field">
+        <textarea id="input" rows="1" placeholder="Bericht Faithbook…"></textarea>
+        <button class="send" id="send" disabled>↑</button>
+      </div>
+      <div class="disclaimer">Faithbook verbindt je met mensen in je gemeenschap.</div>
+    </div>
+  </main>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
