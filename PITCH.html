@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faithbook — 2-minuten pitch</title>
+  <style>
+    :root{
+      --bg:#faf8f5;
+      --page:#e9e6e1;
+      --ink:#1c1a24;
+      --ink-soft:#6b6675;
+      --ink-faint:#a8a2b0;
+      --line:#eae5df;
+      --accent:#6d28d9;
+      --accent-soft:#f2ecff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      background:var(--page);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.7;
+      padding:6vh 5vw;
+    }
+
+    .sheet{
+      max-width:66ch;
+      margin:0 auto;
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:0 30px 80px rgba(28,26,36,.14);
+      padding:clamp(28px,5vw,64px);
+    }
+
+    /* header */
+    header{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;flex-wrap:wrap;
+      padding-bottom:26px;margin-bottom:34px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:38px;height:38px;border-radius:10px;
+      background:radial-gradient(circle at 30% 30%,#8b5cf6,var(--accent));
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:800;font-size:19px;letter-spacing:-.06em;
+    }
+    .brand .name{font-size:20px;font-weight:700;letter-spacing:-.02em}
+    .meta{font-size:13px;color:var(--ink-faint);text-align:right;line-height:1.5}
+    .meta b{color:var(--accent);font-weight:700}
+
+    /* sections */
+    section{margin:0 0 40px}
+    section:last-of-type{margin-bottom:0}
+    .eyebrow{
+      font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:16px;
+    }
+    p{
+      font-size:clamp(17px,1.5vw,20px);
+      color:var(--ink);
+      margin:0 0 18px;
+      text-wrap:pretty;
+    }
+    p:last-child{margin-bottom:0}
+    .accent{color:var(--accent);font-weight:600}
+    .beat{font-weight:700}
+    .quiet{color:var(--ink-soft)}
+
+    /* the demo-story paragraph, gently set apart */
+    .story{
+      border-left:2px solid var(--accent-soft);
+      padding-left:22px;
+    }
+
+    footer{
+      margin-top:40px;padding-top:22px;border-top:1px solid var(--line);
+      font-size:13px;color:var(--ink-faint);
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    }
+
+    @media print{
+      body{background:#fff;padding:0}
+      .sheet{box-shadow:none;border:none;border-radius:0;max-width:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div class="brand">
+        <div class="logo">eo</div>
+        <div class="name">Faithbook</div>
+      </div>
+      <div class="meta">2-minuten pitch · gesproken<br><b>~2 min</b> · rustig tempo</div>
+    </header>
+
+    <section>
+      <div class="eyebrow">Probleem</div>
+      <p>Iedereen heeft vragen. Waarom is mijn moeder er niet meer? Waarom is er oorlog? Waarom voel ik mij eenzaam?</p>
+      <p class="quiet">Op zoek naar antwoorden. Naar advies. Naar hulp.</p>
+      <p>Zijn we niet allemaal op zoek? Vaak ontbreekt niet het antwoord. <span class="beat">Vaak ontbreekt de verbinding.</span></p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Oplossing</div>
+      <p>De eerste generatie internetbedrijven begreep dat al. Daarom gebruiken we ze nog steeds. Ze vonden niets nieuws uit; ze brachten bestaande dingen met elkaar in verbinding. Airbnb bouwde geen huizen, maar verbond zoekenden met biedenden. Uber bouwde geen auto's, maar verbond reizigers met chauffeurs.</p>
+      <p>Maar zij verbinden op basis van trefwoorden. Een huis, een rit — daarvoor werkt dat prima. Maar een mens laat zich niet in trefwoorden vangen. Wat ons met elkaar verbindt, zijn gevoelens, karakter, gewoonten — alles wat iemand tot mens maakt. Daar kon geen enkele tool op zoeken. <span class="accent">AI wél.</span></p>
+      <p class="story">Stel je een gemeenschap voor die haar leden kent op basis van hun profiel, ervaring en behoeften. Een tiener verliest zijn moeder. Hij opent de app en schrijft hoe hij zich voelt. De app ziet niet alleen de woorden, maar begrijpt de context. Vervolgens stelt de app voor om hem in contact te brengen met een pastor die ervaring heeft met rouw. De pastor krijgt een melding. En zo ontstaat <span class="accent">de juiste verbinding.</span></p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Effect</div>
+      <p>Onze gemeenschappen worden gevormd door relaties. Onze AI vervangt hier geen mensen. Het verbindt mensen. Dieper, oprechter en nauwkeuriger.</p>
+      <p>Dit is <span class="accent">FaithBook</span>. Geen chatbot. Een hulpmiddel. Geen bestemming, maar <span class="beat">een brug</span>. Het is geen metgezel, maar een gids die ons helpt de juiste metgezel te vinden. Het verspreidt geen geloof, hoop of liefde. Onze AI verbindt mensen op basis daarvan en geeft gemeenschappen de kracht om die zelf te verspreiden.</p>
+    </section>
+
+    <footer>
+      <span>EO · AI &amp; Bijbel Hackathon</span>
+      <span>geloof, hoop en liefde</span>
+    </footer>
+  </div>
+</body>
+</html>
