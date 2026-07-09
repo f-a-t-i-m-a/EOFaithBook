@@ -42,7 +42,7 @@
     /* Hero thesis */
     .hero{text-align:center;margin:12px 0 4px}
     .hero .soft{font-size:20px;color:var(--ink-soft);letter-spacing:-.01em;margin:0 0 8px}
-    .hero h1{font-size:45px;line-height:1.14;letter-spacing:-.038em;font-weight:700;margin:0}
+    .hero h1{font-size:42px;line-height:1.14;letter-spacing:-.038em;font-weight:700;margin:0}
     .hero h1 em{font-style:normal;color:var(--accent)}
 
     /* section label */
@@ -51,7 +51,13 @@
 
     /* ── Analogy: three tidy columns ─────────────────── */
     .analogy{margin-top:16px}
-    .triad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+    .triad{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:74%;margin:0 auto}
+    .nextgen{margin-top:16px;background:var(--accent-soft);border-radius:14px;
+      padding:11px 20px;text-align:center;line-height:1.4}
+    .nextgen .ng-lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+    .nextgen .ng-txt{font-size:15px;color:var(--ink)}
+    .nextgen .ng-txt b{font-weight:700;color:var(--accent)}
     .triad .cell{padding:0 20px;text-align:center;position:relative}
     .triad .cell + .cell::before{
       content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line);
@@ -83,7 +89,7 @@
     /* ── One concrete moment ─────────────────────────── */
     .moment{
       margin-top:16px;background:var(--warm);border-radius:20px;
-      padding:12px 26px;display:flex;align-items:center;gap:16px;
+      padding:10px 26px;display:flex;align-items:center;gap:16px;
     }
     .moment .face{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;
       box-shadow:0 4px 14px rgba(28,26,36,.16)}
@@ -147,10 +153,10 @@
         <div class="co">Uber</div>
         <div class="tx">bouwde geen auto's —<br>verbond <b>reizigers met chauffeurs</b>.</div>
       </div>
-      <div class="cell us">
-        <div class="co">Faithbook</div>
-        <div class="tx">bouwt geen gemeenschap —<br>verbindt <b>de juiste mensen</b>.</div>
-      </div>
+    </div>
+    <div class="nextgen">
+      <span class="ng-lbl">De volgende generatie verbindt mensen</span>
+      <span class="ng-txt"><b>Faithbook</b> bouwt geen gemeenschap — het verbindt <b>de juiste mensen</b>.</span>
     </div>
   </div>
 
